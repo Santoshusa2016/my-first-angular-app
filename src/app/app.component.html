@@ -1,0 +1,28 @@
+<!-- <app-servers></app-servers> 
+<div app-servers>Attribute selector</div> 
+<div class="app-servers">class selector</div> -->
+
+<!-- Chapter 03-04 -->
+<!-- <app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <app-receipes></app-receipes>
+            <app-shopping-list></app-shopping-list>
+        </div>
+    </div> 
+</div> -->
+
+<div class="container">
+    <app-cockpit 
+    (serverCreated)="onServerAdded($any($event))"
+    (bpCreated)="onBlueprintAdded($any($event))"
+    ></app-cockpit>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-server-element *ngFor="let server of serverElements; let i=index"
+            [srvElement]="server"></app-server-element>
+        </div>
+    </div>
+</div>

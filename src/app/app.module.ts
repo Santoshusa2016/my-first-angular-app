@@ -1,0 +1,40 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { ServerComponent } from './server/server.component';
+import { ServersComponent } from './servers/servers.component';
+import { HeaderComponent } from './header/header.component';
+import { ReceipesComponent } from './receipes/receipes.component';
+import { ReceipeListComponent } from './receipes/receipe-list/receipe-list.component';
+import { ReceipeDetailComponent } from './receipes/receipe-detail/receipe-detail.component';
+import { ReceipeItemComponent } from './receipes/receipe-list/receipe-item/receipe-item.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { CockpitComponent } from './cockpit/cockpit.component';
+import { ServerElementComponent } from './server-element/server-element.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ServerComponent,
+    ServersComponent,
+    HeaderComponent,
+    ReceipesComponent,
+    ReceipeListComponent,
+    ReceipeDetailComponent,
+    ReceipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent,
+    CockpitComponent,
+    ServerElementComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
