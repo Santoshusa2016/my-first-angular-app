@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = 'Max';
+  loadedFeature  = 'receipe';
 
   // chapter05: dataBinding
   serverElements=[{type:'server', name:'RND', content:'processing DEV server'}];
@@ -35,5 +36,10 @@ export class AppComponent {
   onDestroy(){
     console.log('server-element-component: ngOnDestroy() called');
     this.serverElements.splice(0,1);
+  }
+
+  //chapter06: components & databinding
+  onNavigate(feature:string):void{
+    this.loadedFeature = feature;
   }
 }

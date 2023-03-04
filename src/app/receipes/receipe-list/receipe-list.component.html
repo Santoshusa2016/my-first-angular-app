@@ -5,20 +5,11 @@
 </div>
 <hr/>
 <div class="row">
-    <div class="col-xs-12">
-        <a href="#" class="list-group-item clearfix" *ngFor="let receipe of receipes">
-            <div class="float-start">
-                <h4 class="list-group-item fw-bold"> {{receipe.name}}</h4>
-                <p class="list-group-item">{{receipe.description}}</p>
-                <span class="float-end">
-                    <img 
-                    [src]="receipe.imagePath" 
-                    alt={{receipe.name}} 
-                    class="img-responsive"
-                    style="max-height: 50px;">
-                </span>                
-            </div>
-        </a>
-        <app-receipe-item></app-receipe-item>
+    <div class="col-xs-12">        
+        <app-receipe-item 
+            *ngFor="let receipeEl of receipes" 
+            [receipe]="receipeEl"
+            (receipeSelected)="onReceipeSelected(receipeEl)">
+        </app-receipe-item>
     </div>
 </div>

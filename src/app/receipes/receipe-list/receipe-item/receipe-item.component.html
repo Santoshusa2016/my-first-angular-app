@@ -1,1 +1,17 @@
-<p>receipe-item works!</p>
+<a href="#"
+class="list-group-item clearfix"
+(click)="onSelected()">
+    <div class="float-start">
+        <h4 class="list-group-item fw-bold"> {{receipe.name}}</h4>
+        <p class="list-group-item">{{receipe.description}}</p>
+    </div>
+    <div class="float-end">
+        <span>
+            <img 
+            [src]="receipe.imagePath"
+            alt={{receipe.name}} 
+            class="img-responsive"
+            style="max-height:50px;">
+        </span>
+    </div>              
+</a>
