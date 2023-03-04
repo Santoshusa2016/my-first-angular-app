@@ -1,3 +1,4 @@
+<!-- Chapter 01-02 -->
 <!-- <app-servers></app-servers> 
 <div app-servers>Attribute selector</div> 
 <div class="app-servers">class selector</div> -->
@@ -13,16 +14,33 @@
     </div> 
 </div> -->
 
+<!-- Chapter 05 -->
 <div class="container">
     <app-cockpit 
-    (serverCreated)="onServerAdded($any($event))"
-    (bpCreated)="onBlueprintAdded($any($event))"
-    ></app-cockpit>
+        (serverCreated)="onServerAdded($any($event))"
+        (bpCreated)="onBlueprintAdded($any($event))"
+    >
+    </app-cockpit>
     <hr>
     <div class="row">
         <div class="col-xs-12">
+            <button 
+                class="btn btn-primary" 
+                (click)="onChangeName()"> Change Input name
+            </button>
+            <button 
+                class="btn btn-danger" 
+                (click)="onDestroy()"> Delete Server
+            </button>
+
             <app-server-element *ngFor="let server of serverElements; let i=index"
-            [srvElement]="server"></app-server-element>
+            [srvElement]="server"
+            [name]="server.name">
+            <p #contentParagraph>
+                <strong *ngIf="server.type === 'server'" style="color: red">{{ server.content }}</strong>
+                <em *ngIf="server.type === 'blueprint'">{{ server.content }}</em>
+            </p>
+        </app-server-element>
         </div>
     </div>
 </div>

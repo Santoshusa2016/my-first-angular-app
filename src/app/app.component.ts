@@ -27,4 +27,13 @@ export class AppComponent {
     });
   }
 
+  onChangeName(){
+    console.log('server-element-component: ngOnChanges() called');
+    this.serverElements[0].name = "Changed!";
+  }
+
+  onDestroy(){
+    console.log('server-element-component: ngOnDestroy() called');
+    this.serverElements.splice(0,1);
+  }
 }
