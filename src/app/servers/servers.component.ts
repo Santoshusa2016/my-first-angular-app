@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css']
 })
+
 export class ServersComponent implements OnInit{
   //Data binding: property binding
   allowNewServer = false;  

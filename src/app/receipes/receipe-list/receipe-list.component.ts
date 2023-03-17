@@ -8,7 +8,7 @@ import { Receipe } from '../receipe.model';
 })
 export class ReceipeListComponent implements OnInit {
   //event
-  @Output() receipeWasSelected = new EventEmitter<Receipe>();
+  @Output() receipeItemSelected = new EventEmitter<Receipe>();
 
   receipes:Receipe[] = [
     new Receipe("Parotta","parotta salna",
@@ -29,7 +29,7 @@ export class ReceipeListComponent implements OnInit {
 
   //chapter06: Event/Data binding
   onReceipeSelected(receipe:Receipe){
-    this.receipeWasSelected.emit(receipe);
+    this.receipeItemSelected.emit(receipe);
   }
 
 }

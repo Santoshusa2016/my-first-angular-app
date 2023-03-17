@@ -15,7 +15,7 @@
 </div>
 
 
-<!-- Chapter 05 -->
+<!-- Chapter 05 cockpit/server-element component -->
 <!--<div class="container">
     <app-cockpit 
         (serverCreated)="onServerAdded($any($event))"
@@ -45,3 +45,35 @@
         </div>
     </div>
 </div>-->
+
+
+<!-- Chapter 07 appBetterHighlight/appHighlight directives-->
+<!-- <div appBetterHighlight>
+    <p>
+        Style me with basic directive
+    </p>
+</div> -->
+<!-- <div [ngSwitch]="5">
+    <p *ngSwitchCase = "5">Value is 5</p>
+    <p *ngSwitchCase = "10">Value is 10</p>
+    <p *ngSwitchCase = "25">Value is 25</p>
+    <p *ngSwitchDefault>Value is default</p>
+</div> -->
+
+<!-- Chapter 09 - Account/ new-account components -->
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
+        
+        <hr>
+        
+        <app-account
+          *ngFor="let acc of accounts; let i = index"
+          [account]="acc"
+          [id]="i"
+          (statusChanged)="onStatusChanged($event)"></app-account>
+      </div>
+    </div>
+  </div>
+
