@@ -22,6 +22,7 @@ import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { LoggingService } from './shared/logging.service';
 import { AccountsService } from './shared/accounts.service';
+import { ShoppingListService } from './shared/shopping-list.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { AccountsService } from './shared/accounts.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [LoggingService, AccountsService],
+  providers: [LoggingService, AccountsService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

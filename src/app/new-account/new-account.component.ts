@@ -7,17 +7,19 @@ import { LoggingService } from '../shared/logging.service';
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
 })
-export class NewAccountComponent {
-  onCreateAccount(accountName: string, accountStatus: string) {
-    this.accountsService.addAccount({name: accountName, status: accountStatus});
-    this.loggingService.logStatusChange(accountStatus);
-  }
 
+export class NewAccountComponent {
   constructor(private loggingService: LoggingService,
-    private accountsService: AccountsService) {
+    private accountsService: AccountsService) 
+    {
+      debugger;
       this.accountsService.statusUpdate.subscribe(
-        (status:string) => alert('New status: ' + status);
-      );
+        (status:string) => alert('New status: ' + status));
+    }
+
+    onCreateAccount(accountName: string, accountStatus: string) {
+      this.accountsService.addAccount({name: accountName, status: accountStatus});
+      this.loggingService.logStatusChange(accountStatus);
     }
 }
 

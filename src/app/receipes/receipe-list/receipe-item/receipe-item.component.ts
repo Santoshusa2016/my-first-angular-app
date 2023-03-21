@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ReceipeService } from 'src/app/shared/receipe.service';
 import { Receipe } from '../../receipe.model';
 
 @Component({
@@ -8,16 +9,19 @@ import { Receipe } from '../../receipe.model';
 })
 
 export class ReceipeItemComponent implements OnInit {
-
  @Input()receipe: Receipe;
- @Output() receipeSelected = new EventEmitter<void>();
+ //@Output() receipeSelected = new EventEmitter<void>();
+
+ constructor(private receipeService: ReceipeService){
+ }
 
  ngOnInit(): void {
   console.log(this.receipe);
   } 
 
 onSelected():void{
-  this.receipeSelected.emit();
+  //this.receipeSelected.emit();
+  this.receipeService.receipeSelected.emit(this.receipe);
 }
 
 }

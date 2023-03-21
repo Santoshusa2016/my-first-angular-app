@@ -5,7 +5,6 @@ import { AccountsService } from './shared/accounts.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  //providers:[AccountsService]
 })
 export class AppComponent implements OnInit{
   name = 'Max';
@@ -46,17 +45,6 @@ export class AppComponent implements OnInit{
   }
 
   // chapter09: services & DI
-  //before
-
-  /*onAccountAdded(newAccount: {name: string, status: string}) {
-    this.accounts.push(newAccount);
-  }
-
-  onStatusChanged(updateInfo: {id: number, newStatus: string}) {
-    this.accounts[updateInfo.id].status = updateInfo.newStatus;
-  }*/
-
-  //after
   accounts:{name:string, status:string}[];  
   constructor(private accountsSvc: AccountsService) {
   }

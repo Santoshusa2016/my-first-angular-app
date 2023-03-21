@@ -12,14 +12,14 @@ export class AccountComponent {
   @Input() account: {name: string, status: string};
   @Input() id: number;
 
+  constructor(private loggingService: LoggingService,
+    private accountsService: AccountsService) {}
+
   onSetTo(status: string) {
     this.accountsService.updateStatus({id: this.id, status: status});
     this.accountsService.statusUpdate.emit(status); //emit event
     this.loggingService.logStatusChange(status);
-  }
-
-  constructor(private loggingService: LoggingService,
-    private accountsService: AccountsService) {}
+  }  
 }
 
 //before

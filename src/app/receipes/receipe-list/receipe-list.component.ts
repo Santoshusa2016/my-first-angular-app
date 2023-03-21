@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ReceipeService } from 'src/app/shared/receipe.service';
 import { Receipe } from '../receipe.model';
 
 @Component({
@@ -7,29 +8,21 @@ import { Receipe } from '../receipe.model';
   styleUrls: ['./receipe-list.component.css']
 })
 export class ReceipeListComponent implements OnInit {
-  //event
-  @Output() receipeItemSelected = new EventEmitter<Receipe>();
+  //event emitter
+  //@Output() receipeItemSelected = new EventEmitter<Receipe>();
+  receipes: Receipe[];
 
-  receipes:Receipe[] = [
-    new Receipe("Parotta","parotta salna",
-    "https://image.shutterstock.com/image-photo/parotta-indian-bread-made-flour-260nw-2198775675.jpg"),
-    new Receipe("Idly Vada","Idly(2) Vada(1)",
-    "https://sanidli.com/wp-content/uploads/2020/03/idlii.jpg"),
-    new Receipe("Poori Masala","Poori(2) Masala",
-    "https://rakskitchen.net/wp-content/uploads/2013/10/10183927034_e8f964d086_z.jpg")
-    
-  ];
-
-  constructor(){
+  constructor(private receipeSvc: ReceipeService){
   }
 
+  //chap09: services & DI
   ngOnInit(): void {
-    console.log('Method not implemented.');
+    this.receipes = this.receipeSvc.getReceipe();
   }
 
   //chapter06: Event/Data binding
-  onReceipeSelected(receipe:Receipe){
+  /*onReceipeSelected(receipe:Receipe){
     this.receipeItemSelected.emit(receipe);
-  }
+  }*/
 
 }

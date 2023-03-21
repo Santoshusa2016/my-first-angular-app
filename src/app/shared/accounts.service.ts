@@ -19,7 +19,10 @@ export class AccountsService{
         }
       ];
 
-    statusUpdate: EventEmitter<string>;
+    statusUpdate = new EventEmitter<string>();
+
+    constructor(private logservice: LoggingService){}
+
     addAccount(newAccont: {name:string, status: string}){
         //this.accounts.push({name, status});
         this.logservice.logStatusChange(newAccont.status);
@@ -30,8 +33,4 @@ export class AccountsService{
         this.logservice.logStatusChange(updInfo.status);
         this.accounts[updInfo.id].status = updInfo.status;
     };
-
-    constructor(private logservice: LoggingService){
-
-    }
 }
