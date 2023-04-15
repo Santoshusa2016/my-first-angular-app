@@ -18,7 +18,7 @@ export class BasicHighlightDirective implements OnInit{
 
     //react to events happening on element this attribute sits on.
     //hostListener will trigger whenever an event happens
-    @HostListener('mouseenter') mouseover(eventData: Event){
+    @HostListener('mouseenter', ['$event']) mouseover(eventData: Event){
         console.log(eventData);
         this.elementRef.nativeElement.style.backgroundColor= '#5789D8';
     }

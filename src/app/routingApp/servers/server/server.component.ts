@@ -17,12 +17,17 @@ export class ServerComponent implements OnInit {
   }
 
   ngOnInit() {
+    //observing for dynamic data from server-resolver. 
+    //The mapping is done in app-routes.module.ts
     this.route.data
       .subscribe(
         (data: Data) => {
           this.server = data['server'];
         }
       );
+
+    /*by adding + we can convert int to string
+     */
     // const id = +this.route.snapshot.params['id'];
     // this.server = this.serversService.getServer(id);
     // this.route.params
@@ -33,8 +38,14 @@ export class ServerComponent implements OnInit {
     //   );
   }
 
+  //edit server
   onEdit() {
-    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+    this.router.navigate(
+      ['edit', this.server.id], 
+      {
+        relativeTo: this.route, 
+        queryParamsHandling: 'preserve'
+      });
   }
 
 }

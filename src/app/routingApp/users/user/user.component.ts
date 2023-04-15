@@ -33,6 +33,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    //this is to ensure when component is destroyed we unsubscribe
     this.paramsSubscription.unsubscribe();
   }
 

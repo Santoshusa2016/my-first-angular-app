@@ -24,6 +24,7 @@ import { LoggingService } from './shared/logging.service';
 import { AccountsService } from './shared/accounts.service';
 import { ShoppingListService } from './shared/shopping-list.service';
 
+/* Routing */
 import { ServersService } from './routingApp/servers/servers.service';
 import { HomeComponent } from './routingApp/home/home.component';
 import { UsersComponent } from './routingApp/users/users.component';
@@ -31,9 +32,14 @@ import { UserComponent } from './routingApp/users/user/user.component';
 import { EditServerComponent } from './routingApp/servers/edit-server/edit-server.component';
 import { ServerComponent as routeServerComp} from './routingApp/servers/server/server.component';
 import { ServersComponent as routeServersComp } from './routingApp/servers/servers.component';
-import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './shared/auth.service';
 import { AppRoutesModule } from './app-routes.module';
+import { AuthGuard } from './shared/auth-guard.service';
+import { CanDeactivateGuard } from './routingApp/servers/edit-server/can-deactivate-guard.service';
+import { PageNotFoundComponent } from './routingApp/page-not-found/page-not-found.component';
+import { ErrorPageComponent } from './routingApp/error-page/error-page.component';
+import { ServerResolver } from './routingApp/servers/server/server-resolver.service';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +67,9 @@ import { AppRoutesModule } from './app-routes.module';
     UserComponent,
     EditServerComponent,
     routeServerComp,
-    routeServersComp
+    routeServersComp,
+    ErrorPageComponent,
+    PageNotFoundComponent 
   ],
   imports: [
     BrowserModule,
@@ -73,7 +81,10 @@ import { AppRoutesModule } from './app-routes.module';
     , AccountsService
     , ShoppingListService
     , ServersService
-    , AuthService],
+    , AuthService
+    , AuthGuard
+    , CanDeactivateGuard
+    , ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
