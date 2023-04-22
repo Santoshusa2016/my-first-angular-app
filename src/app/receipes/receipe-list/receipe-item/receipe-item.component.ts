@@ -10,6 +10,8 @@ import { Receipe } from '../../receipe.model';
 
 export class ReceipeItemComponent implements OnInit {
  @Input()receipe: Receipe;
+ @Input()index: Number;
+ 
  //@Output() receipeSelected = new EventEmitter<void>();
 
  constructor(private receipeService: ReceipeService){
@@ -20,7 +22,7 @@ export class ReceipeItemComponent implements OnInit {
   } 
 
 onSelected():void{
-  //this.receipeSelected.emit();
+  //this.receipeSelected.emit(); //this event sub will be handled by receipeservice
   this.receipeService.receipeSelected.emit(this.receipe);
 }
 

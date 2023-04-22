@@ -41,6 +41,9 @@ import { ErrorPageComponent } from './routingApp/error-page/error-page.component
 import { ServerResolver } from './routingApp/servers/server/server-resolver.service';
 
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecipeEditComponent } from './receipes/recipe-edit/recipe-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,12 +72,14 @@ import { ServerResolver } from './routingApp/servers/server/server-resolver.serv
     routeServerComp,
     routeServersComp,
     ErrorPageComponent,
-    PageNotFoundComponent 
+    PageNotFoundComponent ,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutesModule
+    AppRoutesModule,
+    NgbModule
   ],
   providers: [
       LoggingService

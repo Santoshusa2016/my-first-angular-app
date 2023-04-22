@@ -13,21 +13,28 @@
         <h1>{{recipe.name}}</h1>
     </div>
 </div>
-
 <div class="row">
     <div class="col-xs-12">
-        <div 
-            class="dropdown">
-            <button 
+        <div ngbDropdown>
+            <button ngbDropdownToggle
+            class="btn btn-secondary" 
             type="button" 
-            class="btn btn-primary dropdown-toggle"
-            id="dropdownMenuButton" data-bs-toggle="dropdown">
-            Manage Receipe
-            </button>            
-            <ul class="dropdown-menu">
-                <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
-                <li><a href="#">Edit Receipe</a></li>
-                <li><a href="#">Delete Receipe</a></li>
+            id="dropdownMenuButton1">
+                Manage Recipe
+            </button>          
+            <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a 
+                    (click)="onAddToShoppingList()" 
+                    style="cursor: pointer;"
+                    class="dropdown-item">
+                    To Shopping List
+                    </a>
+                </li>
+                <li><a style="cursor: pointer;" 
+                    (click)="onEditRecipe()" 
+                    class="dropdown-item">Edit Recipe</a></li>
+                <li><a style="cursor: pointer;" class="dropdown-item">Delete Recipe</a></li>
             </ul>
         </div>
     </div>

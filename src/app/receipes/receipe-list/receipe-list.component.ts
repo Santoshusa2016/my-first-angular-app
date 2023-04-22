@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ReceipeService } from 'src/app/shared/receipe.service';
 import { Receipe } from '../receipe.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-receipe-list',
@@ -12,7 +13,9 @@ export class ReceipeListComponent implements OnInit {
   //@Output() receipeItemSelected = new EventEmitter<Receipe>();
   receipes: Receipe[];
 
-  constructor(private receipeSvc: ReceipeService){
+  constructor(private receipeSvc: ReceipeService
+    , private router: Router
+    , private route: ActivatedRoute){
   }
 
   //chap09: services & DI
@@ -24,5 +27,10 @@ export class ReceipeListComponent implements OnInit {
   /*onReceipeSelected(receipe:Receipe){
     this.receipeItemSelected.emit(receipe);
   }*/
+
+  //chapter11: Routing
+  onNewRecipe():void{
+    this.router.navigate(['new'], { relativeTo: this.route}); //relative route
+  }
 
 }

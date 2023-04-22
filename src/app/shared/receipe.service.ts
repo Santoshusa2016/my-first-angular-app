@@ -58,6 +58,10 @@ export class ReceipeService{
         return this.receipes.slice(); //immutable array, return a copy
     }
 
+    getRecipe(index: number) {
+        return this.receipes[index];
+      }
+
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.slService.addIngredients(ingredients);
     }

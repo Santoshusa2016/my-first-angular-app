@@ -3,16 +3,15 @@
 <div app-servers>Attribute selector</div> 
 <div class="app-servers">class selector</div> -->
 
-<!-- Chapter 03-04-06 -->
-<!-- <app-header (featureSelected)="onNavigate($event)"></app-header>
+<!-- Restaurant - Project -->
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <app-receipes *ngIf="loadedFeature === 'receipe'"></app-receipes>
-            <app-shopping-list *ngIf="loadedFeature !== 'receipe'"></app-shopping-list>
+            <router-outlet></router-outlet>
         </div>
     </div> 
-</div> -->
+</div>
 
 
 <!-- Chapter 05 cockpit/server-element component -->
@@ -130,7 +129,7 @@
   -->
 
   <!-- Chapter 11 - Routing -->
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
         <ul class="nav nav-tabs justify-content-end">
@@ -161,5 +160,5 @@
         <router-outlet></router-outlet>
       </div>
     </div>
-  </div>
+  </div> -->
 

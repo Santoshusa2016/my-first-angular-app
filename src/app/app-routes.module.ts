@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './routingApp/home/home.component';
 import { UsersComponent } from './routingApp/users/users.component';
 import { UserComponent } from './routingApp/users/user/user.component';
 import { ServersComponent} from './routingApp/servers/servers.component';
@@ -13,12 +12,27 @@ import { CanDeactivateGuard } from './routingApp/servers/edit-server/can-deactiv
 import { ErrorPageComponent } from './routingApp/error-page/error-page.component';
 import { ServerResolver } from './routingApp/servers/server/server-resolver.service';
 
+
+import { ReceipesComponent } from './receipes/receipes.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ReceipeStartComponent } from './receipes/receipe-start/receipe-start.component';
+import { ReceipeDetailComponent } from './receipes/receipe-detail/receipe-detail.component';
+import { RecipeEditComponent } from './receipes/recipe-edit/recipe-edit.component';
+
 const appRoutes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'users', component: UsersComponent, children:[
-    {path:':id/:name', component: UserComponent}
-  ]},
-  
+  //{path:'', component: HomeComponent}, //default route when app is loaded
+  {
+    path:'',
+    redirectTo:'/receipes', 
+    pathMatch: 'full'
+  }, 
+  {
+    path:'users', 
+    component: UsersComponent, 
+    children:[
+      {path:':id/:name', component: UserComponent}
+    ]
+  },  
   {
     path:'servers', 
     //canActivate:[AuthGuard],
@@ -38,8 +52,20 @@ const appRoutes: Routes = [
   ]},
   {path:'not-found', component: PageNotFoundComponent, pathMatch: 'full'},
   {path:'error-not-found', component:ErrorPageComponent, data:{message:'Page not found'}},
-  {path:'**', redirectTo: '/error-not-found'}
 
+  
+  {
+    path:'receipes',
+    component:ReceipesComponent,
+    children: [
+      {path:'', component: ReceipeStartComponent},
+      {path:'new', component: RecipeEditComponent, pathMatch: 'full'},
+      {path:':id', component: ReceipeDetailComponent},
+      {path:':id/edit', component: RecipeEditComponent}
+    ]
+  },
+  {path:'shopping-list',component:ShoppingListComponent},
+  {path:'**', redirectTo: '/error-not-found'} //catch-all routes
 ];
 
 @NgModule({

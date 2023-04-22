@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from './shared/accounts.service';
-import { Stock } from './stock/stock';
 
 @Component({
   selector: 'app-root',
@@ -54,20 +53,9 @@ export class AppComponent implements OnInit{
   // chapter09: services & DI
   accounts:{name:string, status:string}[];  
   constructor(private accountsSvc: AccountsService) {
-    this.stock = new Stock('Test Stock Company', 'TSC', 85, 80);
   }
 
   ngOnInit(): void {
     this.accounts = this.accountsSvc.accounts; //reference type
   }
-
-
-
-  //chap03:angular-up-and-running
-  public stock: Stock;
-
-  public security = {
-    type:"stock"
-  };
-  
 }
