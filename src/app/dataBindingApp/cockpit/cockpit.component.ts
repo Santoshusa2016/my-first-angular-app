@@ -8,7 +8,11 @@ import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular
 export class CockpitComponent {
 
   /*Chapter:05 publish event*/
-  @Output() serverCreated = new EventEmitter<{servername: string, serverContent:string}>(); //adding parantheses would call constructor of event emitter to create a new event emitter
+  @Output() serverCreated = new EventEmitter<
+  {
+    servername: string, 
+    serverContent:string
+  }>(); //adding parantheses would call constructor of event emitter to create a new event emitter
   @Output('bpCreated') blueprintCreated = new EventEmitter<{servername: string, serverContent:string}>();
  
   //2-way binding

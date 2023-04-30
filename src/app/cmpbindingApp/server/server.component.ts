@@ -16,7 +16,7 @@ export class ServerComponent{
 
     //Data binding: string interpolation
     serverId: number = 10;
-    servername: String = "mycomputer";
+    servername: string = "mycomputer";
     serverstatus: string = "offline";
 
     /**

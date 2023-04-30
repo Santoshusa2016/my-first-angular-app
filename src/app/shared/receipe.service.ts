@@ -2,12 +2,14 @@ import { EventEmitter, Injectable } from "@angular/core";
 import { Receipe } from "../receipes/receipe.model";
 import { Ingredient } from "./ingredient.model";
 import { ShoppingListService } from "./shopping-list.service";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class ReceipeService{
  
     //receipe selected in "receipe-item.component.ts"
-    public receipeSelected = new EventEmitter<Receipe>();
+    //public receipeSelected = new EventEmitter<Receipe>();
+    public recipeSelected = new Subject<Receipe>(); //sec14
 
     private receipes:Receipe[] = [
         new Receipe(
