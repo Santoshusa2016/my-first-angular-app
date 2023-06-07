@@ -18,12 +18,13 @@ export class ReceipeItemComponent implements OnInit {
  }
 
  ngOnInit(): void {
-  console.log(this.receipe);
+    console.log(this.receipe);
   } 
 
 onSelected():void{
+  console.log('item selected');
   //this.receipeSelected.emit(); //this event sub will be handled by receipeservice
-  this.receipeService.receipeSelected.emit(this.receipe);
+  this.receipeService.recipeSelected.next(this.receipe);
 }
 
 }

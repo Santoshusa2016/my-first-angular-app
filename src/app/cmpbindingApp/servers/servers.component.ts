@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-servers', //element selector
   // selector: '[app-servers]', //attribute-selector
-  // selector: '.app-servers.', //class-selector
+  // selector: '.app-servers', //class-selector
   // template: `
   // <app-server></app-server>
   // <app-server></app-server>
@@ -19,7 +19,7 @@ export class ServersComponent implements OnInit{
   
   serverCreationStatus: string = "Creating...";
   serverName='Enter sever name'; //2way data-binding
-  isServerCreated:boolean=false;
+  isServerCreated:boolean = false;
   servers:Array<string> = [];
 
   constructor(){
@@ -41,7 +41,6 @@ export class ServersComponent implements OnInit{
   }
 
   onKeyPress(event: any){
-    //console.log(event) will emit event data and value
     console.log(event);
     this.serverName = (<HTMLInputElement>event.target).value; //targetcast to input type
   }

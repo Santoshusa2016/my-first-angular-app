@@ -10,6 +10,7 @@ export class ReceipeService{
     //receipe selected in "receipe-item.component.ts"
     //public receipeSelected = new EventEmitter<Receipe>();
     public recipeSelected = new Subject<Receipe>(); //sec14
+    public recipesChanged = new Subject<Receipe[]>; //sec16: 234
 
     private receipes:Receipe[] = [
         new Receipe(
@@ -66,5 +67,21 @@ export class ReceipeService{
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.slService.addIngredients(ingredients);
+    }
+
+    addRecipe(recipe: Receipe){
+        this.receipes.push(recipe);
+        this.recipesChanged.next(this.receipes.slice());
+    }
+
+    updateRecipe(index: number, recipe: Receipe){
+        this.receipes[index] = recipe;
+        this.recipesChanged.next(this.receipes.slice());
+    }
+
+    //sect16:235
+    deleteRecipe(index: number){
+        this.receipes.splice(index, 1);
+        this.recipesChanged.next(this.receipes.slice());
     }
 }
