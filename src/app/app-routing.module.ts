@@ -1,0 +1,41 @@
+import { NgModule } from "@angular/core";
+import {
+  PreloadAllModules,
+  PreloadingStrategy,
+  RouterModule,
+  Routes,
+} from "@angular/router";
+
+const appRoutes: Routes = [
+  {
+    path: "",
+    redirectTo: "/recipes",
+    pathMatch: "full",
+  },
+  {
+    path: "recipes",
+    loadChildren: () =>
+      import("./receipes/recipes.module").then((m) => m.RecipesModule), //lazy loading
+  },
+  {
+    path: "shopping-list",
+    loadChildren: () =>
+      import("./shopping-list/shopping-list.module").then(
+        (m) => m.ShoppingListModule
+      ),
+  },
+  {
+    path: "auth",
+    loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule),
+  },
+];
+
+@NgModule({
+  declarations: [],
+  imports: [
+    //RouterModule.forRoot(appRoutes, {useHash: true}) //#mode routing. location strategies
+    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }), //sect22:335
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

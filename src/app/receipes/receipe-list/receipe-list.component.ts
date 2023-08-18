@@ -1,5 +1,11 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ReceipeService } from "src/app/shared/receipe.service";
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  Output,
+  EventEmitter,
+} from "@angular/core";
+import { ReceipeService } from "src/app/receipes/receipe.service";
 import { Receipe } from "../receipe.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
@@ -7,11 +13,10 @@ import { Subscription } from "rxjs";
 @Component({
   selector: "app-receipe-list",
   templateUrl: "./receipe-list.component.html",
-  styleUrls: ["./receipe-list.component.css"],
 })
 export class ReceipeListComponent implements OnInit, OnDestroy {
   //event emitter,
-  //@Output() receipeItemSelected = new EventEmitter<Receipe>();
+  @Output() receipeItemSelected = new EventEmitter<Receipe>();
   receipes: Receipe[];
   subscription: Subscription;
 
@@ -34,9 +39,9 @@ export class ReceipeListComponent implements OnInit, OnDestroy {
   }
 
   //chapter06: Event/Data binding
-  /*onReceipeSelected(receipe:Receipe){
+  onReceipeSelected(receipe: Receipe) {
     this.receipeItemSelected.emit(receipe);
-  }*/
+  }
 
   //chapter11: Routing
   onNewRecipe(): void {

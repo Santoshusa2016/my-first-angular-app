@@ -1,30 +1,27 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ReceipeService } from 'src/app/shared/receipe.service';
-import { Receipe } from '../../receipe.model';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ReceipeService } from "src/app/receipes/receipe.service";
+import { Receipe } from "../../receipe.model";
 
 @Component({
-  selector: 'app-receipe-item',
-  templateUrl: './receipe-item.component.html',
-  styleUrls: ['./receipe-item.component.css']
+  selector: "app-receipe-item",
+  templateUrl: "./receipe-item.component.html",
 })
-
 export class ReceipeItemComponent implements OnInit {
- @Input()receipe: Receipe;
- @Input()index: Number;
- 
- //@Output() receipeSelected = new EventEmitter<void>();
+  @Input() receipe: Receipe;
+  @Input() index: Number;
 
- constructor(private receipeService: ReceipeService){
- }
+  //@Output() receipeSelected = new EventEmitter<void>();
 
- ngOnInit(): void {
+  constructor(private receipeService: ReceipeService) {}
+
+  ngOnInit(): void {
     console.log(this.receipe);
-  } 
+  }
 
-onSelected():void{
-  console.log('item selected');
-  //this.receipeSelected.emit(); //this event sub will be handled by receipeservice
-  this.receipeService.recipeSelected.next(this.receipe);
-}
-
+  onSelected(): void {
+    console.log("item selected");
+    //this.receipeSelected.emit();
+    //this event sub will be handled by receipeservice
+    this.receipeService.recipeSelected.next(this.receipe);
+  }
 }

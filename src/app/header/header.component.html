@@ -8,8 +8,21 @@
       <ul class="navbar-nav mr-auto pull-left">
         <li class="nav-item">
           <!-- <a class="nav-link" href="#" (click)="onSelect('receipe')">Receipes</a> -->
-          <a class="nav-link" routerLink="/receipes" routerLinkActive="active"
-            >Receipes</a
+          <a
+            class="nav-link"
+            routerLink="/recipes"
+            routerLinkActive="active"
+            *ngIf="isAuthenticated"
+            >Recipes</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/auth"
+            routerLinkActive="active"
+            *ngIf="!isAuthenticated"
+            >Authenticate</a
           >
         </li>
         <li class="nav-item">
@@ -22,22 +35,35 @@
           >
         </li>
       </ul>
+
       <ul class="navbar-nav mr-auto pull-right">
-        <li class="nav-item dropdown" ngbDropdown>
+        <li class="nav-item">
+          <a
+            style="cursor: pointer"
+            class="nav-link menu-item"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            *ngIf="isAuthenticated"
+            (click)="onLogOut()"
+          >
+            Logout
+          </a>
+        </li>
+
+        <li class="nav-item dropdown" ngbDropdown *ngIf="isAuthenticated">
           <a
             ngbDropdownToggle
             style="cursor: pointer"
             class="nav-link menu-item dropdown-toggle"
             role="button"
-            aria-haspopup="true"
-            aria-expanded="false"
           >
             Manage
           </a>
           <div
             ngbDropdownMenu
-            class="dropdown-menu"
-            aria-labelledby="navbarDropdown"
+            class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="dropdownBasic1"
           >
             <a
               style="cursor: pointer"
