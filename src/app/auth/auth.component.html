@@ -4,10 +4,18 @@
       <app-loading-spinner></app-loading-spinner>
     </div>
     <!-- .alert.alert-danger -->
-    <div class="alert alert-danger" *ngIf="error">
+    <!-- <div class="alert alert-danger" *ngIf="error">
       <p>{{ error }}</p>
-    </div>
+    </div> -->
 
+    <!-- Render Dynamic component using ngIf -->
+    <!-- <app-alert
+      [message]="error"
+      *ngIf="error"
+      (close)="onHandleError()"
+    ></app-alert> -->
+
+    <ng-template appPlaceholder> </ng-template>
     <form #authform="ngForm" (ngSubmit)="onSubmit(authform)" *ngIf="!isLoading">
       <div class="form-group">
         <label for="email">E-Mail</label>
@@ -38,10 +46,10 @@
           type="submit"
           [disabled]="!authform.valid"
         >
-          {{ isLoginMode ? "Login" : "SignIn" }}</button
+          {{ isLoginMode ? 'Login' : 'SignIn' }}</button
         >|
         <button class="btn btn-primary" type="button" (click)="onSwitchMode()">
-          Switch to {{ isLoginMode ? "Login" : "SignIn" }}
+          Switch to {{ isLoginMode ? 'Login' : 'SignIn' }}
         </button>
       </div>
     </form>

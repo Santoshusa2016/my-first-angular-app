@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   {
     path: "recipes",
     loadChildren: () =>
-      import("./receipes/recipes.module").then((m) => m.RecipesModule), //lazy loading
+      import("./recipes/recipes.module").then((m) => m.RecipesModule), //lazy loading
   },
   {
     path: "shopping-list",
