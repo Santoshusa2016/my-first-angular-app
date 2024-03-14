@@ -25,10 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authService: AuthService
   ) {}
 
-  ngOnDestroy(): void {
-    this.userSub.unsubscribe();
-  }
-
+  
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !user ? false : true;
@@ -36,21 +33,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
       console.log(!!user);
     });
   }
-
+  
   onSelect(feature: string): void {
     //emit dropdown menu selected
     this.featureSelected.emit(feature);
   }
-
+  
   onSaveData() {
     this.dataService.storeRecipes();
   }
-
+  
   onFetchData() {
     this.dataService.fetchRecipes().subscribe();
   }
-
+  
   onLogOut() {
     this.authService.logout();
+  }
+  
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
   }
 }

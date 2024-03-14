@@ -14,13 +14,14 @@ export class RecipesComponent implements OnInit, OnDestroy {
 
   constructor(private recipeService: RecipeService) {}
 
-  ngOnDestroy(): void {
-    this.recipeSelectedSub.unsubscribe();
-  }
-
+  
   ngOnInit(): void {
     this.recipeSelectedSub = this.recipeService.recipeSelected.subscribe(
       (data: Recipe) => (this.selectedRecipe = data)
-    );
-  }
+      );
+    }
+    
+    ngOnDestroy(): void {
+      this.recipeSelectedSub.unsubscribe();
+    }
 }
